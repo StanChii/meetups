@@ -1,0 +1,46 @@
+{% extends 'meetups/base.html'%}
+{%block title%}Register{%endblock%}
+{%block speaker%}{%endblock%}
+{%block general_form%}{%endblock%}
+{%block upcoming%}{%endblock%}
+{%block video%}{%endblock%}
+{%block meetups%}
+
+
+<section class="speakers section-padding" id="section_3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+            <h2 class="text-primary">Participants</h2>
+            <table class="table table-striped">
+                <thead  class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for partipant in participants%}
+                  <tr>
+                    <th scope="row">{{partipant.id}}</th>
+                    <td>{{partipant.email}}</td>
+                    <td><a href="mailto:{{partipant.email}}">Send Email</a></td>
+                  </tr>
+                    {%empty%}
+                    <p>No participants yet</p>
+                    {%endfor%}
+                  </tr>
+                </tbody>
+            </table>
+            
+            <span>{{ count}} Participants</span>
+
+        </div>
+              </div>   
+            </div> 
+            </section>
+
+{%endblock%}
+{% block meetup_details%} {%endblock%}

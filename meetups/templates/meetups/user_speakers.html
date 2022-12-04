@@ -1,0 +1,99 @@
+{% extends 'meetups/base.html'%}
+{%block title%}my speakers{%endblock%}
+{%block speaker%}{%endblock%}
+{%block general_form%}{%endblock%}
+{%block upcoming%}{%endblock%}
+{%block video%}{%endblock%}
+{%block meetups%}
+
+
+<section class="speakers section-padding" id="section_3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+            <h2 class="text-primary">My Speakers</h2>
+            <hr>
+            <form action="" class="contact-form" method="GET" id="contact">
+                {%csrf_token%}
+                <div class="col-xl-12">
+                  <div class="contact-form-wrapper"> 
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group mb-5">
+                  <input type="text" name="q" placeholder="search" class="form-control" required />
+                  <button type="submit" class="btn btn-primary">
+                    Search
+                   </button>
+                   <a class="btn btn-outline-primary " href="{% url 'user-speakers' request.user.id%}" >All</a>
+                </div>
+                </div>
+                <p>
+                  These are diiferent meetups for different events. You can edit them or delete them here
+                </p>
+              </div>
+             
+                    
+                </div>
+              </div>
+            </form>
+            
+                            
+              </div>
+              </div> 
+              <div class="container"> 
+                <div class="row">
+                    
+                   {% for speaker in speakers %}
+                   <div class="col-md-4 p-2">
+                     <div class="image">
+                      <div class="card">
+                       <div class="single-news">
+                         
+                         <img src="{{ speaker.image.url }}" class="card-img-top img-fluid" style="width:355px; height:230px; object-fit:cover" >
+                         
+                       </div>
+                         <div class="card-body">
+                           <div class="card-title">
+                             <div class="content-body">
+                               <h4 class="title">
+                             {{ speaker.name }}
+                           
+                               </h4>
+                             </div>
+                           </div>
+                           <div class="card-sub-title">
+                             <span >Email:  {{ speaker.email }}  Phone:  {{ speaker.phone }}</span></div>
+                             <div class="card-text">
+                               Meetup Name: {{speaker.meetup_name}}
+                              
+                             </div>
+                             <br>
+                         
+                           <a class="btn primary-btn rounded-full" target="_new" href="#">Edit</a>
+                           <a class="btn primary-btn rounded-full" target="_new" href="#">Delete</a>
+                           <hr/>
+                          
+                   
+            
+                         </div>
+           
+                      </div>
+                     </div>
+                   </div>
+                   {% empty %}
+                   <span> No data found</span>
+               {%endfor%}
+               
+                  </div>
+               </div>
+               
+              </div>
+
+             
+              </div>   
+            </div>   
+            </div> 
+            </section>
+
+{%endblock%}
+{% block meetup_details%} {%endblock%}

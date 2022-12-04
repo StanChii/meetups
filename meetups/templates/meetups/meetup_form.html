@@ -1,0 +1,27 @@
+{% extends 'meetups/base.html'%}
+{%block title%}Comfirm Registration{%endblock%}
+{%block speaker%}{%endblock%}
+{%block general_form%}{%endblock%}
+{%block video%}{%endblock%}
+{%block meetups%}
+<section class="speakers section-padding">
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3>Meetup form</h3>
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token%} 
+                    <p> {{form.as_p}}</p>
+                    <button class="btn btn-outline-primary" type="submit">Add meetup</button>
+                
+                
+                </form>
+                </div>
+              
+            </div>
+             </div>
+                 
+            </section>
+
+{%endblock%}
+{% block meetup_details%} {%endblock%}

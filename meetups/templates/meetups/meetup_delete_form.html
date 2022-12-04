@@ -1,0 +1,38 @@
+
+{% extends 'meetups/base.html'%}
+{%block title%}Meetup delete{%endblock%}
+{%block speaker%}{%endblock%}
+{%block general_form%}{%endblock%}
+{%block upcoming%}{%endblock%}
+{%block video%}{%endblock%}
+{%block meetups%}
+
+
+<section class="speakers section-padding" id="section_3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+            <h2 class="text-primary">Delete Meetups</h2>
+            <p>Are you sure you want to delete ?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-3">
+                        <p><a class="btn btn-primary" href="{%url 'home'%}">Back</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-outline-primary">Delete</button>
+                    </div>
+                </div>
+               
+               
+               
+            </form>          
+                            
+              </div>
+              </div>   
+            </div> 
+            </section>
+
+{%endblock%}
+{% block meetup_details%} {%endblock%}

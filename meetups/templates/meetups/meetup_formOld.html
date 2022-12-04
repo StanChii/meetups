@@ -1,0 +1,8 @@
+<h1>Meetup form</h1>
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token%} 
+    <p> {{form.as_p}}</p>
+    <button>Add meetup</button>
+
+
+</form>
